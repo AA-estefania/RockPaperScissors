@@ -1,0 +1,104 @@
+/* ----- POPPINS FONT Link ----- */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+/* ----- VARIABLES ----- */
+:root {
+    --body-color: #fed8b7;
+    --first-color: #c24760;
+    --second-color: #ffa99d;
+    --third-color: #f07281;
+    --first-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--body-color);
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background: rgb(255, 252, 247);
+    padding: 20px 100px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px var(--first-shadow-color);
+    position: relative; /* Ensure relative positioning for absolute elements */
+}
+
+h1 {
+    color: var(--third-color);
+    margin-bottom: 20px;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.choices {
+    display: flex;
+    margin: 20px 0;
+}
+
+.choice {
+    width: 200px;
+    height: 200px;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.choice:hover {
+    transform: scale(1.1);
+}
+
+.result {
+    margin-top: 20px;
+    position: relative; /* Ensure that the gif is positioned relative to this container */
+}
+
+.result-gif {
+    width: 200px;
+    height: 200px;
+    position: absolute; /* Positioning on top of other elements */
+    top: 50%; /* Center vertically within result section */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10; /* Ensure it's above other elements */
+    display: none; /* Initially hidden */
+}
+
+#player-choice,
+#computer-choice {
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+}
+
+.hide-results {
+    opacity: 0;
+    visibility: hidden; /* Hide elements but keep layout space */
+}
+
+#result-text {
+    font-size: 70px;
+    color: var(--second-color);
+	transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.result p {
+    font-size: 30px;
+    color: var(--third-color);
+    font-weight: 500;
+	transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+
+@keyframes showResult {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.show-result {
+    animation: showResult 0.5s ease-out;
+}
+
